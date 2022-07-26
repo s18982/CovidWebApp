@@ -1,6 +1,7 @@
 ﻿using CovidWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using CovidWebApp.Data;
 
 namespace CovidWebApp.Controllers
 {
@@ -15,6 +16,15 @@ namespace CovidWebApp.Controllers
 
         public IActionResult Index()
         {
+            return View();
+        }
+
+        public async Task<ViewResult> Result()
+        {
+            CountryBase cb = new CountryBase();
+            await cb.readData("https://api.covid19api.com/summary");
+
+            ViewData["Message"] = cb.getResult();
             return View();
         }
 
