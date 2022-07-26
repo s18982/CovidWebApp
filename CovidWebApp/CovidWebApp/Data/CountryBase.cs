@@ -15,7 +15,7 @@
             {
                 HttpClient client = new HttpClient();
                 HttpResponseMessage response = await client.GetAsync(url);
-
+                
                 if (response.IsSuccessStatusCode)
                 {
                     result = await response.Content.ReadAsStringAsync();
