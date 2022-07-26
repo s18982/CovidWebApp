@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Fifi\Desktop\CovidWebApp\CovidWebApp\CovidWebApp
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Fifi/Desktop/CovidWebApp/CovidWebApp/CovidWebApp/Views/Covid/Country.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ292aWRcQ291bnRyeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Fifi/Desktop/CovidWebApp/CovidWebApp/CovidWebApp/Views/Covid/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ292aWRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -25,10 +29,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Fifi/Desktop/CovidWebApp/CovidWebApp/CovidWebApp/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Fifi/Desktop/CovidWebApp/CovidWebApp/CovidWebApp/Views/Home/Result.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXN1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Fifi/Desktop/CovidWebApp/CovidWebApp/CovidWebApp/Views/Shared/Error.cshtml]

@@ -20,29 +20,6 @@ namespace CovidWebApp.Controllers
             return View();
         }
 
-        public async Task<ViewResult> Result()
-        {
-            CountryBase countryBase = new CountryBase();
-            await countryBase.readData("https://api.covid19api.com/summary");
-
-
-            SingleCountryModel[] singleCountryModels = countryBase.GetCountryModel().Countries;
-            var orderedCountryList = from country in singleCountryModels
-                                     orderby country.TotalConfirmed descending
-                                     select country;
-
-            singleCountryModels = orderedCountryList.ToArray();
-            SingleCountryModel[] countryArr = new SingleCountryModel[20];
-
-            for (int i = 0; i < 20; i++)
-            {
-                countryArr[i] = singleCountryModels[i];
-            }
-            ViewData["Message"] = countryArr;
-
-            return View();
-        }
-
         public IActionResult Privacy()
         {
             return View();
