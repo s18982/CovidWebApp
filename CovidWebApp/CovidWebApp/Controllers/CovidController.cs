@@ -28,6 +28,7 @@ namespace CovidWebApp.Controllers
             ViewData["Message"] = countryArr;
             ViewData["GlobalTotalConfirmed"] = countryBase.GetCountryModel().Global.TotalConfirmed;
             ViewData["GlobalNewConfirmed"] = countryBase.GetCountryModel().Global.NewConfirmed;
+            
             return View();
         }
 
