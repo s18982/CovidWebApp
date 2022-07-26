@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using CovidWebApp.Data;
+using System.Linq;
 
 namespace CovidWebApp.Controllers
 {
@@ -21,15 +22,24 @@ namespace CovidWebApp.Controllers
 
         public async Task<ViewResult> Result()
         {
-            CountryBase countryBase= new CountryBase();
+            CountryBase countryBase = new CountryBase();
             await countryBase.readData("https://api.covid19api.com/summary");
 
-            try{
-                ViewData["Message"] = countryBase.GetCountryModel(); 
-            }catch(Exception ex)
+
+            SingleCountryModel[] singleCountryModels = countryBase.GetCountryModel().Countries;
+            var orderedCountryList = from country in singleCountryModels
+                                     orderby country.TotalConfirmed descending
+                                     select country;
+
+            singleCountryModels = orderedCountryList.ToArray();
+            SingleCountryModel[] countryArr = new SingleCountryModel[20];
+
+            for (int i = 0; i < 20; i++)
             {
-                return View(NoContent);  
+                countryArr[i] = singleCountryModels[i];
             }
+            ViewData["Message"] = countryArr;
+
             return View();
         }
 

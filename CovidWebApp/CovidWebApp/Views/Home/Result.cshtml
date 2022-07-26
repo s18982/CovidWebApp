@@ -7,21 +7,23 @@
     <table>
         <thead>
             <tr>
+                <th>Nr</th>
                 <th>Country</th>
-                <th>Total Confirmed</th> 
+                <th>Total</th>
             </tr>
         </thead>
         <tbody>
             @{
-                CountryModel countryModel = (CountryModel)ViewData["Message"];
-                SingleCountryModel[] singleCountries = countryModel.Countries;
+                //CountryModel countryModel = (CountryModel)ViewData["Message"];
+                SingleCountryModel[] singleCountries = (SingleCountryModel[]) ViewData["Message"];
 
                 for (int i = 0;i<singleCountries.Length;i++)
                 {
                     <tr>
-                        <td>@singleCountries[i].Country</td>
-                        <td>@singleCountries[i].TotalConfirmed</td>
-                    </tr>
+                                <td>@(i+1)</td>
+                                <td>@singleCountries[i].Country</td>
+                                <td>@singleCountries[i].TotalConfirmed</td>
+                            </tr>
                 }
             }
         </tbody>
