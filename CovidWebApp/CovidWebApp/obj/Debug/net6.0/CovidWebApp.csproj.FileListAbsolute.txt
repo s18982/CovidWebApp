@@ -24,3 +24,5 @@ C:\Users\Fifi\Desktop\CovidWebApp\CovidWebApp\CovidWebApp\obj\Debug\net6.0\refin
 C:\Users\Fifi\Desktop\CovidWebApp\CovidWebApp\CovidWebApp\obj\Debug\net6.0\CovidWebApp.pdb
 C:\Users\Fifi\Desktop\CovidWebApp\CovidWebApp\CovidWebApp\obj\Debug\net6.0\CovidWebApp.genruntimeconfig.cache
 C:\Users\Fifi\Desktop\CovidWebApp\CovidWebApp\CovidWebApp\obj\Debug\net6.0\ref\CovidWebApp.dll
+C:\Users\Fifi\Desktop\CovidWebApp\CovidWebApp\CovidWebApp\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Fifi\Desktop\CovidWebApp\CovidWebApp\CovidWebApp\obj\Debug\net6.0\CovidWebApp.csproj.CopyComplete

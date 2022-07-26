@@ -21,10 +21,15 @@ namespace CovidWebApp.Controllers
 
         public async Task<ViewResult> Result()
         {
-            CountryBase cb = new CountryBase();
-            await cb.readData("https://api.covid19api.com/summary");
+            CountryBase countryBase= new CountryBase();
+            await countryBase.readData("https://api.covid19api.com/summary");
 
-            ViewData["Message"] = cb.getResult();
+            try{
+                ViewData["Message"] = countryBase.GetCountryModel(); 
+            }catch(Exception ex)
+            {
+                return View(NoContent);  
+            }
             return View();
         }
 

@@ -1,13 +1,12 @@
-﻿namespace CovidWebApp.Data
+﻿using CovidWebApp.Models;
+
+namespace CovidWebApp.Data
 {
     public class CountryBase
     {
-        static string result="";
+        CountryModel? countryModel;
 
-        public CountryBase()
-        {
-            
-        }
+        public CountryBase(){}
         
         public async Task readData(string url)
         {
@@ -15,10 +14,10 @@
             {
                 HttpClient client = new HttpClient();
                 HttpResponseMessage response = await client.GetAsync(url);
-                
-                if (response.IsSuccessStatusCode)
-                {
-                    result = await response.Content.ReadAsStringAsync();
+#pragma warning disable CS8602 // Wyłuskanie odwołania, które może mieć wartość null.
+                if (response.IsSuccessStatusCode && response.Content is object && response.Content.Headers.ContentType.MediaType == "application/json")
+                {   
+                    countryModel = await response.Content.ReadFromJsonAsync<CountryModel>();
                 }
             }
             catch (Exception e)
@@ -26,10 +25,13 @@
                 Console.WriteLine(e);
             }
         }
-        
-        public string getResult()
+
+        public CountryModel GetCountryModel()
         {
-            return result;
+            if (countryModel == null)
+                throw new Exception("CountryModel is null.");
+            
+            return countryModel;
         }
     }
 }
