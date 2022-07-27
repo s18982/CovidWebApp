@@ -2,12 +2,13 @@
 {
     public class Converter
     {
+        // Klasa sluzaca do eleganckiego sformatowania reprezentacji liczb (np. 1234567 -> 1 234 567)
         public static string FromIntToString(int num)
         {
             string numStr = num.ToString();
             string reversStr = "";
-            if (numStr.Length < 4) 
-            { 
+            if (numStr.Length < 4)
+            {
                 return numStr;
             }
             else
@@ -26,11 +27,11 @@
                         reversStr += numStr[i];
                         counter--;
                     }
-                }  
+                }
             }
 
             string resultString = "";
-            for(int i = reversStr.Length-1; i >= 0; i--)
+            for (int i = reversStr.Length - 1; i >= 0; i--)
             {
                 resultString += reversStr[i];
             }

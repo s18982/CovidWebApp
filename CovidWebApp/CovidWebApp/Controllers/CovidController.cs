@@ -9,7 +9,7 @@ namespace CovidWebApp.Controllers
     public class CovidController : Controller
     {
 
-        // 
+        // endpoint ../Covid; wyswietla liste 20 krajow z najwieksza liczba zakazen
         public async Task<ViewResult> Index()
         {
             CountryBase countryBase = new CountryBase();
@@ -30,11 +30,11 @@ namespace CovidWebApp.Controllers
             ViewData["Message"] = countryArr;
             ViewData["GlobalTotalConfirmed"] = Converter.FromIntToString(countryBase.GetCountryModel().Global.TotalConfirmed);
             ViewData["GlobalNewConfirmed"] = Converter.FromIntToString(countryBase.GetCountryModel().Global.NewConfirmed);
-            
+
             return View();
         }
 
-        // 
+        // endpoint ../Covid/Country/{CountryCode}; pokazuje detale danego kraju
         public async Task<ViewResult> Country(string id)
         {
             CountryBase countryBase = new CountryBase();
@@ -43,10 +43,10 @@ namespace CovidWebApp.Controllers
             SingleCountryModel[] singleCountryModels = countryBase.GetCountryModel().Countries;
 
             bool exist = false;
-            
+
             foreach (SingleCountryModel s in singleCountryModels)
             {
-                if(s.CountryCode.Equals(id))
+                if (s.CountryCode.Equals(id))
                     exist = true;
             }
 
@@ -54,7 +54,7 @@ namespace CovidWebApp.Controllers
                 return null;
 
             SingleCountryModel countryModel = singleCountryModels
-                                              .Where(x=>x.CountryCode.Equals(id)).First();
+                                              .Where(x => x.CountryCode.Equals(id)).First();
 
             ViewData["CountryCode"] = countryModel.CountryCode;
             ViewData["Country"] = countryModel.Country;
@@ -65,8 +65,6 @@ namespace CovidWebApp.Controllers
             ViewData["NewRecovered"] = Converter.FromIntToString(countryModel.NewRecovered);
             ViewData["TotalRecovered"] = Converter.FromIntToString(countryModel.TotalRecovered);
 
-            //Console.WriteLine(Converter.FromIntToString(countryModel.TotalConfirmed));
-            
             return View();
         }
     }

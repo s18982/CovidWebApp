@@ -6,6 +6,7 @@ using System.Linq;
 
 namespace CovidWebApp.Controllers
 {
+    // wygenerowany na starcie kontroler; strona startowa, polityka prywatnosci, strona bledu
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
