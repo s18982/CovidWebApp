@@ -8,12 +8,13 @@
     <p>New cases: @ViewData["GlobalNewConfirmed"]</p>
     <p>Total cases: @ViewData["GlobalTotalConfirmed"]</p>
     <h3>Covid Top 20</h3>
-    <table>
+    <table id="demo-table">
         <thead>
             <tr>
                 <th>Nr</th>
                 <th>Country</th>
                 <th>Total</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -29,9 +30,9 @@
                                             @{
                                                 string link = "/Covid/Country/" + @singleCountries[i].CountryCode;
                                             }
-                                            <p><a href=@link>Klik</a></p>
+                                            <p><a href=@link>More information</a></p>
                                         </td>
-                                    </tr>
+                            </tr>
                 }
             }
         </tbody>

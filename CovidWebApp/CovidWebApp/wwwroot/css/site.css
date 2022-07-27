@@ -16,3 +16,58 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.country-mess{
+    text-align:left;
+}
+#demo-table {
+    font: 100% sans-serif;
+    width:100%;
+    margin-top:60px; 
+}
+
+    #demo-table > caption {
+        text-align: left;
+        font-weight: bold;
+        font-size: 200%;
+        border-bottom: .2em solid #4ca;
+        margin-bottom: .5em;
+    }
+
+
+    /* basic shared rules */
+    #demo-table th,
+    #demo-table td {
+        
+    }
+
+    #demo-table th {
+        font-weight: bold;
+        padding: .5em .5em .5em .5em;
+        /*padding-left: .2em;*/
+    }
+
+
+    /* header */
+    #demo-table > thead > tr:first-child > th {
+        text-align: left;
+        color: black;
+    }
+
+    #demo-table > thead > tr + tr > th {
+        font-style: italic;
+        color: black;
+        text-align: left;
+    }
+
+    /* fix size of superscript */
+
+    /* body */
+    #demo-table td {
+        padding: .5em .5em .5em .5em;
+        text-align: left;
+    }
+
+    #demo-table tbody th:after {
+        content: ":";
+    }
