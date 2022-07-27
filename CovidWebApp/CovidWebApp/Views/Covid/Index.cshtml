@@ -1,4 +1,5 @@
-﻿@{
+﻿@using CovidWebApp.Data
+@{
     ViewData["Title"] = "Covid Top20";
 }
 
@@ -11,10 +12,10 @@
     <table id="demo-table">
         <thead>
             <tr>
-                <th>Nr</th>
-                <th>Country</th>
-                <th>Total</th>
-                <th>Action</th>
+                <th>Nr:</th>
+                <th>Country:</th>
+                <th>Total:</th>
+                <th>Action:</th>
             </tr>
         </thead>
         <tbody>
@@ -25,12 +26,12 @@
                             <tr>
                                         <td>@(i+1)</td>
                                         <td>@singleCountries[i].Country</td>
-                                        <td>@singleCountries[i].TotalConfirmed</td>
+                                        <td>@Converter.FromIntToString(singleCountries[i].TotalConfirmed)</td>
                                         <td>
                                             @{
                                                 string link = "/Covid/Country/" + @singleCountries[i].CountryCode;
                                             }
-                                            <p><a href=@link>More information</a></p>
+                                            <p><a href=@link>More details</a></p>
                                         </td>
                             </tr>
                 }

@@ -8,6 +8,7 @@ namespace CovidWebApp.Data
 
         public CountryBase(){}
         
+        // Metoda readData() pobiera dane z API w formacie JSON i tworzy instancję modelu CountryModel
         public async Task readData(string url)
         {
             try
@@ -26,6 +27,7 @@ namespace CovidWebApp.Data
             }
         }
 
+        // Metoda GetCountryModel() zwraca model CountryModel, o ile nie jest nullem
         public CountryModel GetCountryModel()
         {
             if (countryModel == null)

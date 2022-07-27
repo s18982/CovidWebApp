@@ -8,6 +8,8 @@ namespace CovidWebApp.Controllers
 {
     public class CovidController : Controller
     {
+
+        // 
         public async Task<ViewResult> Index()
         {
             CountryBase countryBase = new CountryBase();
@@ -26,12 +28,13 @@ namespace CovidWebApp.Controllers
                 countryArr[i] = singleCountryModels[i];
             }
             ViewData["Message"] = countryArr;
-            ViewData["GlobalTotalConfirmed"] = countryBase.GetCountryModel().Global.TotalConfirmed;
-            ViewData["GlobalNewConfirmed"] = countryBase.GetCountryModel().Global.NewConfirmed;
+            ViewData["GlobalTotalConfirmed"] = Converter.FromIntToString(countryBase.GetCountryModel().Global.TotalConfirmed);
+            ViewData["GlobalNewConfirmed"] = Converter.FromIntToString(countryBase.GetCountryModel().Global.NewConfirmed);
             
             return View();
         }
 
+        // 
         public async Task<ViewResult> Country(string id)
         {
             CountryBase countryBase = new CountryBase();
@@ -55,13 +58,15 @@ namespace CovidWebApp.Controllers
 
             ViewData["CountryCode"] = countryModel.CountryCode;
             ViewData["Country"] = countryModel.Country;
-            ViewData["NewConfirmed"] = countryModel.NewConfirmed;
-            ViewData["TotalConfirmed"] = countryModel.TotalConfirmed;
-            ViewData["NewDeaths"] = countryModel.NewDeaths;
-            ViewData["TotalDeaths"] = countryModel.TotalDeaths;
-            ViewData["NewRecovered"] = countryModel.NewRecovered;
-            ViewData["TotalRecovered"] = countryModel.TotalRecovered;
+            ViewData["NewConfirmed"] = Converter.FromIntToString(countryModel.NewConfirmed);
+            ViewData["TotalConfirmed"] = Converter.FromIntToString(countryModel.TotalConfirmed);
+            ViewData["NewDeaths"] = Converter.FromIntToString(countryModel.NewDeaths);
+            ViewData["TotalDeaths"] = Converter.FromIntToString(countryModel.TotalDeaths);
+            ViewData["NewRecovered"] = Converter.FromIntToString(countryModel.NewRecovered);
+            ViewData["TotalRecovered"] = Converter.FromIntToString(countryModel.TotalRecovered);
 
+            //Console.WriteLine(Converter.FromIntToString(countryModel.TotalConfirmed));
+            
             return View();
         }
     }
